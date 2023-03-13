@@ -49,9 +49,11 @@ def main():
     if "F" in text:
         files = input()
         if "a" not in files:
-            with open("/test + files") as fl:
-                n = int(input())
-                data = list(map(int, input().split()))
+            with open("./tests/" + files ) as fr:
+                
+                n = int(fr.readline().strip())
+                data = list((map(int, fr.readline().strip().split())))
+                assert len(data) == n
                 swaps = build_heap(data)
                 m = len(swaps)
                 print(m)
@@ -59,8 +61,7 @@ def main():
                     print(i, j)
 
     # checks if lenght of data is the same as the said lenght
-    #assert len(data) == n
-
+    
     # calls function to assess the data 
     # and give back all swaps
 
@@ -69,7 +70,5 @@ def main():
 
 
     # output all swaps
-
-
 if __name__ == "__main__":
     main()
